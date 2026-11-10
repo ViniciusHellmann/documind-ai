@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090f1d">
+  <meta name="description" content="DocuMind AI — inteligência documental para transformar arquivos em decisões.">
+  <title>DocuMind AI — Central de documentos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="DocuMind AI início">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4.8h10l6 6v16.4H8z"/><path d="M18 4.8v6h6M12 17h8M12 21h8M12 25h5"/></svg></span>
+        <span class="brand-copy"><strong>DocuMind<span>AI</span></strong><small>INTELLIGENCE WORKSPACE</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav">
+        <button class="nav-link active" data-view="analyze"><span class="nav-icon">✳</span> Nova análise <kbd>⌘ K</kbd></button>
+        <button class="nav-link" data-view="history"><span class="nav-icon">◷</span> Histórico</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-card">
+          <span class="status-dot"></span>
+          <div><strong>Motor de IA</strong><small id="engine-status">Configuração pendente</small></div>
+        </div>
+        <button class="nav-link" data-view="settings"><span class="nav-icon">⚙</span> Configurações</button>
+        <div class="profile"><div class="avatar">DM</div><div><strong>Seu espaço</strong><small>Plano de demonstração</small></div><span class="profile-more">···</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" aria-label="Abrir menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="crumb">Nova análise</strong></div>
+        <div class="topbar-right"><span class="secure-label"><span>●</span> Ambiente de demonstração</span><div class="top-avatar">DM</div></div>
+      </header>
+
+      <section class="view active" id="view-analyze">
+        <div class="page-heading">
+          <div><div class="eyebrow">DOCUMENT INTELLIGENCE</div><h1>Transforme documentos em <em>decisões.</em></h1><p>Envie um arquivo e deixe a IA organizar o que realmente importa.</p></div>
+          <div class="heading-chip"><span class="pulse"></span> Gemini conectado via Supabase</div>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel upload-panel">
+            <div class="panel-heading"><div><h2>Nova análise</h2><p>Comece adicionando um documento ao workspace.</p></div><span class="step-label">01 <i>/</i> 03</span></div>
+            <label class="dropzone" id="dropzone" for="file-input">
+              <input id="file-input" type="file" accept=".pdf,.txt,application/pdf,text/plain">
+              <span class="upload-symbol"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L7 9m5-5 5 5M4 16v4h16v-4"/></svg></span>
+              <strong>Arraste seu arquivo para cá</strong>
+              <span class="drop-sub">ou <b>procure no computador</b></span>
+              <span class="file-rules"><span>PDF ou TXT</span><i>•</i><span>Até 10 MB</span><i>•</i><span>Um arquivo por análise</span></span>
+            </label>
+            <div class="file-card hidden" id="file-card">
+              <div class="file-type" id="file-type">PDF</div><div class="file-meta"><strong id="file-name">documento.pdf</strong><small id="file-size">0 KB</small></div>
+              <button class="icon-button" id="remove-file" aria-label="Remover arquivo">×</button>
+            </div>
+            <div class="analysis-options">
+              <div><h3>Tipo de análise</h3><p>Escolha como a IA deve interpretar o documento.</p></div>
+              <div class="select-wrap"><select id="analysis-type" aria-label="Tipo de análise"><option value="complete">Análise completa</option><option value="summary">Resumo executivo</option><option value="extract">Extração de informações</option><option value="risks">Riscos e pontos de atenção</option></select></div>
+            </div>
+            <button class="primary-button" id="analyze-button" disabled><span>✦</span> Analisar documento <b>→</b></button>
+            <div class="privacy-note"><span>▣</span> Use apenas documentos fictícios ou autorizados. Evite dados pessoais e sigilosos nesta versão.</div>
+            <div class="error-box hidden" id="error-box" role="alert"></div>
+          </section>
+
+          <aside class="side-column">
+            <section class="panel insight-panel"><div class="panel-heading"><div><h2>O que você recebe</h2><p>Uma leitura estruturada, não apenas um resumo.</p></div></div>
+              <div class="feature-list">
+                <div class="feature"><span class="feature-icon violet">✧</span><div><strong>Resumo inteligente</strong><small>Contexto e ideias centrais em linguagem clara.</small></div></div>
+                <div class="feature"><span class="feature-icon blue">⌕</span><div><strong>Dados relevantes</strong><small>Nomes, datas, valores e referências identificadas.</small></div></div>
+                <div class="feature"><span class="feature-icon amber">⚑</span><div><strong>Pontos de atenção</strong><small>Riscos, pendências e próximos passos sugeridos.</small></div></div>
+              </div>
+            </section>
+            <section class="tip-card"><div class="tip-icon">✦</div><div><strong>Dica para melhores resultados</strong><p>Documentos com texto selecionável costumam gerar extrações mais precisas do que PDFs digitalizados como imagem.</p></div></section>
+          </aside>
+        </div>
+
+        <section class="panel result-panel hidden" id="result-panel">
+          <div class="result-top"><div><div class="eyebrow">ANÁLISE CONCLUÍDA</div><h2 id="result-title">Resultado do documento</h2><p id="result-subtitle"></p></div><button class="secondary-button" id="new-analysis">＋ Nova análise</button></div>
+          <div class="result-grid">
+            <article class="result-card summary-card"><div class="result-card-head"><span class="mini-icon violet">✧</span><h3>Resumo executivo</h3></div><p id="summary-text"></p></article>
+            <article class="result-card"><div class="result-card-head"><span class="mini-icon blue">⌕</span><h3>Classificação</h3></div><div class="classification" id="classification"></div></article>
+            <article class="result-card"><div class="result-card-head"><span class="mini-icon amber">⚑</span><h3>Pontos de atenção</h3></div><ul id="attention-list" class="result-list"></ul></article>
+            <article class="result-card"><div class="result-card-head"><span class="mini-icon green">✓</span><h3>Próximos passos sugeridos</h3></div><ul id="actions-list" class="result-list"></ul></article>
+            <article class="result-card full-card"><div class="result-card-head"><span class="mini-icon blue">⌗</span><h3>Informações extraídas</h3></div><div class="data-table-wrap"><table class="data-table"><tbody id="extracted-table"></tbody></table></div></article>
+          </div>
+          <div class="disclaimer">A análise é uma sugestão gerada por IA. Revise as informações antes de tomar decisões.</div>
+        </section>
+        <div class="loading-overlay hidden" id="loading-overlay">
+          <div class="loading-card"><div class="loader-orbit"><span></span></div><div class="eyebrow">DOCUMIND AI ENGINE</div><h2 id="loading-title">Lendo seu documento</h2><p id="loading-message">Preparando o conteúdo para análise…</p><div class="progress-track"><span id="progress-bar"></span></div><small id="progress-label">Preparando arquivo · 10%</small><button class="cancel-button" id="cancel-analysis">Cancelar análise</button></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-history">
+        <div class="page-heading compact"><div><div class="eyebrow">SEU WORKSPACE</div><h1>Histórico de <em>análises.</em></h1><p>Consulte os documentos analisados neste navegador.</p></div><button class="primary-button small" id="history-new">＋ Nova análise</button></div>
+        <section class="panel history-panel"><div class="history-toolbar"><div><h2>Documentos recentes</h2><p id="history-count">Nenhuma análise salva ainda.</p></div><button class="text-button" id="clear-history">Limpar histórico</button></div><div id="history-list" class="history-list"></div></section>
+      </section>
+
+      <section class="view" id="view-settings">
+        <div class="page-heading compact"><div><div class="eyebrow">PREFERÊNCIAS</div><h1>Configurações do <em>workspace.</em></h1><p>Verifique a conexão e os limites desta versão.</p></div></div>
+        <section class="panel settings-panel"><h2>Conexão com IA</h2><p>O navegador chama a Edge Function do Supabase. A chave Gemini permanece exclusivamente no servidor.</p><div class="setting-row"><div><strong>URL do Supabase</strong><small id="setting-url">Não configurada</small></div><span class="setting-status" id="url-status">Pendente</span></div><div class="setting-row"><div><strong>Chave pública</strong><small>Publishable key configurada no arquivo local</small></div><span class="setting-status" id="key-status">Pendente</span></div><div class="setting-row"><div><strong>Motor de IA</strong><small>Gemini 3.8 Flash via Edge Function</small></div><span class="setting-status">Servidor</span></div><div class="settings-warning"><strong>Privacidade nesta versão</strong><p>O histórico fica no armazenamento local do navegador. A função de IA é pública nesta demonstração e não possui autenticação de usuários. Não envie documentos confidenciais, médicos, financeiros ou com dados pessoais.</p></div></section>
+        <section class="panel settings-panel"><h2>Limites do ambiente</h2><div class="setting-row"><div><strong>Tipos aceitos</strong><small>PDF e TXT</small></div></div><div class="setting-row"><div><strong>Tamanho máximo</strong><small>10 MB por arquivo; texto extraído limitado para envio à IA.</small></div></div><div class="setting-row"><div><strong>Histórico</strong><small>Salvo somente neste navegador (localStorage).</small></div></div></section>
+      </section>
+      <footer class="footer"><span>DOCUMIND AI <i>•</i> DOCUMENT INTELLIGENCE</span><span>Feito para transformar informação em clareza.</span></footer>
+    </main>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/document-analyzer.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+# A função de demonstração aceita chamadas sem login.
+# A validação de origem e o tratamento básico estão no código da função.
+[functions.analyze-document]
+verify_jwt = false
